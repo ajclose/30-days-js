@@ -17,6 +17,7 @@ body {
 .panels {
   min-height: 100vh;
   overflow: hidden;
+  display: flex;
 }
 
 .panel {
@@ -31,6 +32,10 @@ body {
   font-size: 20px;
   background-size: cover;
   background-position: center;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel1 {
@@ -53,10 +58,30 @@ body {
   background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
 }
 
-.panel>* {
+.panel > * {
   margin: 0;
   width: 100%;
   transition: transform 0.5s;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel > *:first-child {
+  transform: translateY(-100%);
+}
+
+.panel.open-active > *:first-child {
+  transform: translateY(0%);
+}
+
+.panel > *:nth-child(3) {
+  transform: translateY(100%);
+}
+
+.panel.open-active > *:nth-child(3) {
+  transform: translateY(0);
 }
 
 .panel p {
@@ -72,4 +97,5 @@ body {
 
 .panel.open {
   font-size: 40px;
+  flex: 5;
 }
